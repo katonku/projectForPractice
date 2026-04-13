@@ -7,8 +7,11 @@ struct Testing {
                                recipientName: "Anton",
                                status: .preparing)
         parcelOne.updateStatus(.shipped("3456"))
-        parcelOne.updateStatus(.delivered(Date.now))
+        
+        var parcelTwo = parcelOne
+        parcelTwo.updateStatus(.delivered(Date.now))
         
         print(parcelOne.status)
+        print(parcelTwo.status)
     }
 }
