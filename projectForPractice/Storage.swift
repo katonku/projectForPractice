@@ -1,16 +1,21 @@
 class Storage<T> {
-    var materials: [T]
+    private(set) var items: [T]
     
-    init(materials: [T]) {
-        self.materials = materials
+    init(items: [T]) {
+        self.items = items
     }
     
     subscript(index: Int) -> T {
         get {
-            return materials[index]
+            return items[index]
         }
         set {
-            materials[index] = newValue
+            guard index < items.count else {
+                print("Wrong index. It should be in 0 and \(items.count - 1)")
+                return
+            }
+                
+            items[index] = newValue
         }
     }
 }
