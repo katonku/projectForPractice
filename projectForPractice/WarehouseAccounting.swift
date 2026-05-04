@@ -13,5 +13,19 @@ struct Testing {
         
         print(parcelOne.status)
         print(parcelTwo.status)
+        
+        printStatusDitailes(parcelOne.status)
+        printStatusDitailes(parcelTwo.status)
+    }
+}
+
+func printStatusDitailes(_ status: Status) {
+    switch status {
+    case .delivered( let date):
+        print("Delivery date: \(date)")
+    case .shipped( let number):
+        print("Track number: \(number)")
+    case .preparing:
+        print("There is no data.")
     }
 }
